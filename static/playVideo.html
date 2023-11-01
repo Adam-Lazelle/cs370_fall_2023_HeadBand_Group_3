@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+  <div id="mediaContainer">
+    <div id="player"></div>
+    <!-- display:none hides the images at first until called later -->
+    <div id="imageContainer" style="display: none;">
+      <img id="image1" src="path_to_image_1.jpg" alt="Image 1" style="display: none;">
+      <img id="image2" src="path_to_image_2.jpg" alt="Image 2" style="display: none;">
+      <img id="image3" src="path_to_image_3.jpg" alt="Image 3" style="display: none;">
+    </div>
+  </div>
+
+  <!-- display:none hides the options at first until called later -->
+  <div id="options" style="display: none;">
+    <p>Choose an option:</p>
+    <img id="option1" src="path_to_option_1.jpg" alt="Option 1" style="cursor: pointer;">
+    <img id="option2" src="path_to_option_2.jpg" alt="Option 2" style="cursor: pointer;">
+    <img id="option3" src="path_to_option_3.jpg" alt="Option 3" style="cursor: pointer;">
+  </div>
+
+  <!-- display:none hides the messages at first until called later -->
+  <div id="message" style="display: none;"></div>
+
+  <script>
+  	//Relevant variable declarations - allow for video manipulation
+    let player;
+    let optionsDiv = document.getElementById("options");
+    let imageContainer = document.getElementById("imageContainer");
+    let message = document.getElementById("message");
+
+	//Youtube API information
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("player", {
+        height: "360",
+        width: "640",
+        videoId: "mx6MzHYzEfY", // Replace with your own video ID
+        playerVars: {
+          controls: 1,
+          showinfo: 0,
+          rel: 0,
+          modestbranding: 1,
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    }
+
+	//Play video
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+	//Once video ends, display options and images
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        optionsDiv.style.display = "block";
+        imageContainer.style.display = "block";
+      }
+    }
+
+    document.getElementById("option1").addEventListener("click", function () {
+      //Message 1 displayed on option2 click
+      message.style.display = "block";
+      message.innerHTML = "We are glad you enjoyed this video! We will continue to show videos like this!";
+    });
+
+    document.getElementById("option2").addEventListener("click", function () {
+      //Message 2 displayed on option2 click
+      message.style.display = "block";
+      message.innerHTML = "Thank you for the feedback! We will continue to search for better videos.";
+    });
+
+    document.getElementById("option3").addEventListener("click", function () {
+      //Message 3 displayed on option2 click
+      message.style.display = "block";
+      message.innerHTML = "Sorry that you did not like the video, we will not show this video again!";
+    });
+  </script>
+</body>
+</html>
