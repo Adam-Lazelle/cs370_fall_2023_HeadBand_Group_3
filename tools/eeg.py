@@ -5,11 +5,6 @@ from neurosdk.cmn_types import *
 
 from tools.logging import logger   
 
-from flask import Flask,render_template
-
-
-def Connection_Status():
-    return render_template("Connection_Page.html", Cstatus = "Connected")
 
 #doing all this a the "module level" in "Demo" server mode it will work fine :)
 
