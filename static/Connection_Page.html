@@ -9,7 +9,7 @@
     background-image:url('media/Background.png');
     background-repeat: no-repeat;
     background-size: auto;
-
+    
   }
 </style>
 
@@ -25,7 +25,6 @@
   <button style="background-color: orange;color: white;font-size: 60px; height:150px;width:300px; border-radius: 10px;position:absolute; left:750px;top:550px;">Continue</button>
   </a>
 
-
   <script> 
   
    message=document.getElementById('text');
@@ -33,9 +32,11 @@
    image=document.getElementById('Hourglass');
 
 
+    if(Cstatus){
+    message.style.display='none';
+    image.style.display='none';
+    }
 
-    //message.style.display='none';
-    //image.style.display='none';
 
 
 
