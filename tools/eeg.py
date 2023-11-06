@@ -5,11 +5,6 @@ from neurosdk.cmn_types import *
 
 from tools.logging import logger   
 
-from flask import Flask,redirect
-
-
-return redirect('/static/Connected.html')
-
 
 #doing all this a the "module level" in "Demo" server mode it will work fine :)
 
