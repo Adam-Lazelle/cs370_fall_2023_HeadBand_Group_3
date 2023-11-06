@@ -7,8 +7,8 @@ from tools.logging import logger
 
 from flask import Flask,redirect
 
-def Connection():
-    return redirect('/static/Connected.html')
+
+return redirect('/static/Connected.html')
 
 
 #doing all this a the "module level" in "Demo" server mode it will work fine :)
