@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}Head Band-About{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/">
+     <script src="https://code.jquery.com/jquery-3.6.0.js"
+		     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+	<script>
+		function play_start(){
+			$.post("/open_api/play_movie", { "data":"somedata", "any":"data"},
+				function(data, textStatus) {
+					//this gets called when browser receives response from server
+					console.log(data);
+				}, "json").fail( function(response) {
+					//this gets called if the server throws an error
+					console.log("error");
+				console.log(response);});
+		}
+	</script>
+
+    <script>
+		function play_stop(){
+			$.post("/open_api/stop_movie", { "data":"somedata", "any":"data"},
+				function(data, textStatus) {
+					//this gets called when browser receives response from server
+					console.log(data);
+				}, "json").fail( function(response) {
+					//this gets called if the server throws an error
+					console.log("error");
+				console.log(response);});
+		}
+	</script>
+
+
+
+	<video id="video" width="1920" height="1080" controls>
+		  <source src="video/1.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+	</video>
+
+    <script>
+        video.style.position = 'absolute'
+    </script>
+
+	<script>
+		video.addEventListener("play", (event) => {
+			play_start();
+		});
+	</script>
+
+
+    <script>
+		video.addEventListener("pause", (event) => {
+			play_stop();
+            console.log('Stop')
+		});
+	</script>
+   </div>
+{% endblock %}

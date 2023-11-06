@@ -1,6 +1,8 @@
 PyJWT>=2.3.0
 Flask-JSON>=0.3.4
 bcrypt>=3.2.0
-pyyaml
+pyyaml~=6.0.1
 pyneurosdk2
 
+
+flask~=3.0.0
