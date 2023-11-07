@@ -37,12 +37,12 @@
       player = new YT.Player("player", {
         height: "360",
         width: "640",
-        videoId: "mx6MzHYzEfY", // Replace with your own video ID
+        videoId: "mx6MzHYzEfY", //yt video ID
         playerVars: {
-          controls: 1,
-          showinfo: 0,
-          rel: 0,
-          modestbranding: 1,
+          controls: 1, 			//controls available?
+          showinfo: 0,			//info shown during video play?
+          rel: 0,				//next video options shown during pause?
+          modestbranding: 0,	//youtube icon hidden?
         },
         events: {
           onReady: onPlayerReady,
